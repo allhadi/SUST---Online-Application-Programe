@@ -17,4 +17,4 @@ const applicationSchema = mongoose.Schema(
   }
 )
 
-module.exports = mongoose.model('Application', goalSchema)
+module.exports = mongoose.model('Application', applicationSchema)
