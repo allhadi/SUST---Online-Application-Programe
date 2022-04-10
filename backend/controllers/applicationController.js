@@ -23,6 +23,7 @@ const createApplications = asyncHandler(async(req, res)=>{
 
  const application = await Application.create({
   text: req.body.text,
+  user: req.user.id,
 })
 
  res.status(200).json(application)

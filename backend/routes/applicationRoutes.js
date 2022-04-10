@@ -7,7 +7,10 @@ const {
   deleteApplications 
   } = require('../controllers/applicationController')
 
-router.route('/').get(getApplications).post(createApplications)
-router.route('/:id').put(updateApplications).delete(deleteApplications)
+const { protect } = require('../middleware/authMiddleware')
+
+
+router.route('/').get(protect,getApplications).post(protect,createApplications)
+router.route('/:id').put(protect,updateApplications).delete(protect,deleteApplications)
 
 module.exports = router
