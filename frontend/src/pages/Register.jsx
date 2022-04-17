@@ -1,11 +1,36 @@
-import {useState, useEffect} from 'react'
-import {FaUser} from 'react-icons/fa'
+import { useState, useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
+import { FaUser } from 'react-icons/fa'
+import { register, reset } from '../features/auth/authSlice'
+import Spinner from '../components/Spinner'
+
 function AdminDashboard() {
   const [formData, setFormData] = useState({
-    regino:'',
+    regino: '',
   })
 
-  const{regino} = formData
+  const { regino } = formData
+
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+
+  const { user, isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.auth
+  )
+
+  useEffect(() => {
+    if (isError) {
+      toast.error(message)
+    }
+
+    if (isSuccess || user) {
+      navigate('/login')
+    }
+
+    dispatch(reset())
+  }, [user, isError, isSuccess, message, navigate, dispatch])
 
   const onChange = (e) => {
     setFormData((prevState) => ({
@@ -15,7 +40,18 @@ function AdminDashboard() {
   }
 
   const onSubmit = (e) => {
-      e.preventDefault()
+    e.preventDefault()
+
+    const userData = {
+      regino,
+    }
+
+    dispatch(register(userData))
+  }
+
+
+  if (isLoading) {
+    return <Spinner />
   }
 
   return (

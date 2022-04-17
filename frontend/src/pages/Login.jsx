@@ -1,12 +1,37 @@
-import {useState, useEffect} from 'react'
-import {FaSignInAlt} from 'react-icons/fa'
+import { useState, useEffect } from 'react'
+import { FaSignInAlt } from 'react-icons/fa'
+import { useSelector, useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
+import { login, reset } from '../features/auth/authSlice'
+import Spinner from '../components/Spinner'
+
 function Login() {
   const [formData, setFormData] = useState({
-    regino:'',
-    password:'',
+    regino: '',
+    password: '',
   })
 
-  const{regino,password} = formData
+  const { regino, password } = formData
+
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+
+  const { user, isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.auth
+  )
+
+  useEffect(() => {
+    if (isError) {
+      toast.error(message)
+    }
+
+    if (isSuccess || user) {
+      navigate('/user')
+    }
+
+    dispatch(reset())
+  }, [user, isError, isSuccess, message, navigate, dispatch])
 
   const onChange = (e) => {
     setFormData((prevState) => ({
@@ -16,41 +41,61 @@ function Login() {
   }
 
   const onSubmit = (e) => {
-      e.preventDefault()
+    e.preventDefault()
+
+    const userData = {
+      regino,
+      password,
+    }
+
+    dispatch(login(userData))
+  }
+
+  if (isLoading) {
+    return <Spinner />
   }
 
   return (
     <>
-    <section className='login'>
-      <h1>
-        <FaSignInAlt/> Login
-      </h1>
-      <form onSubmit={onSubmit}>
-        <div className='form-group'>
-            <input 
+      <section className='heading'>
+        <h1>
+          <FaSignInAlt /> Login
+        </h1>
+        <p>Login and start setting goals</p>
+      </section>
+
+      <section className='form'>
+        <form onSubmit={onSubmit}>
+          <div className='form-group'>
+            <input
+              type='text'
               className='form-control'
-              type="text" 
-              id='regino' 
-              name='regino' 
-              value={regino} 
-              placeholder='Registration Number'
+              id='regino'
+              name='regino'
+              value={regino}
+              placeholder='Enter your regino'
               onChange={onChange}
             />
-            <input 
+          </div>
+          <div className='form-group'>
+            <input
+              type='password'
               className='form-control'
-              type="text" 
-              id='password' 
-              name='password' 
-              value={password} 
-              placeholder='Password'
+              id='password'
+              name='password'
+              value={password}
+              placeholder='Enter password'
               onChange={onChange}
             />
-        </div>
-        <div className='form-group'>
-          <button type='submit'className='btn btn-block'>Login</button>
-        </div>
-      </form>
-    </section>
+          </div>
+
+          <div className='form-group'>
+            <button type='submit' className='btn btn-block'>
+              Submit
+            </button>
+          </div>
+        </form>
+      </section>
     </>
   )
 }
