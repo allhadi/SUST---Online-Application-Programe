@@ -44,7 +44,7 @@ function Login() {
     e.preventDefault()
 
     const userData = {
-      regino,
+      registrationNo:regino,
       password,
     }
 
