@@ -53,9 +53,9 @@ if(user){
 //@route  POST /api/users/login
 //@access Public
 const loginUser = asyncHandler(async (req, res) => {
-const {regiNo,password} = req.body
+const {registrationNo,password} = req.body
 //check for user email
-const user = await User.findOne({regiNo})
+const user = await User.findOne({registrationNo})
 
   if(user && (await bcrypt.compare(password, user.password))){
     res.json({
