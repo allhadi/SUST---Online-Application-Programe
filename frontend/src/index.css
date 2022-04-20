@@ -213,3 +213,204 @@ h3 {
     font-size: 1.5rem;
   }
 }
+
+/* Login Form start */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+.loginform a {
+  text-decoration: none;
+  color: #1ab188;
+  transition: 0.5s ease;
+}
+
+.loginform {
+  padding: 40px;
+  max-width: 600px;
+  margin: 40px auto;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
+}
+
+.tab-group {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px 0;
+}
+.tab-group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.tab-group li a {
+  display: block;
+  text-decoration: none;
+  padding: 15px;
+  background: #c74000;
+  color: #ffffff;
+  font-size: 20px;
+  float: left;
+  width: 50%;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+
+li.tab.std a:hover {
+  color: #3d5a80;
+  background: #ffffff;
+  border: 1px solid #3d5a80;
+  padding: 14px;
+}
+
+li.tab.adm a:hover {
+  color: #c74000;
+  background: #ffffff;
+  border: 1px solid #c74000;
+  padding: 14px;
+}
+
+.tab-group .std a {
+  background: #3d5a80;
+  color: #ffffff;
+}
+
+.tab-content > div:last-child {
+  display: none;
+}
+
+.loginform h1 {
+  text-align: center;
+  color: #ffffff;
+  font-weight: 300;
+  margin: 0 0 40px;
+}
+
+.loginform label {
+  position: absolute;
+  transform: translateY(6px);
+  left: 13px;
+  color: rgba(0, 0, 0, 0.5);
+  transition: all 0.25s ease;
+  -webkit-backface-visibility: hidden;
+  pointer-events: none;
+  font-size: 22px;
+}
+.loginform label .req {
+  margin: 2px;
+  color: #ff0000;
+}
+
+.loginform label.active {
+  transform: translateY(50px);
+  left: 2px;
+  font-size: 14px;
+}
+.loginform label.active .req {
+  opacity: 0;
+}
+
+.loginform label.highlight {
+  color: #ffffff;
+}
+
+.loginform input, textarea {
+  font-size: 22px;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 10px 10px;
+  background: none;
+  background-image: none;
+  border: 1px solid #a0b3b0;
+  color: #0c0b0b;
+  border-radius: 0;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.loginform input:focus, textarea:focus {
+  outline: 0;
+  border-color: #1ab188;
+}
+
+.loginform textarea {
+  border: 2px solid #a0b3b0;
+  resize: vertical;
+}
+
+.loginform .field-wrap {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.loginform .top-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.loginform .top-row > div {
+  float: left;
+  width: 48%;
+  margin-right: 4%;
+}
+.loginform .top-row > div:last-child {
+  margin: 0;
+}
+
+.loginform .button-admin-login {
+  border: 0;
+  outline: none;
+  border-radius: 0;
+  padding: 13px 0;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background: #c74000;
+  color: #ffffff;
+  width: 100%;
+  margin-top: 26px;
+  transition: all 0.5s ease;
+  -webkit-appearance: none;
+}
+
+.loginform .button-admin-login:hover {
+  background: #ffffff;
+  color: #c74000;
+  border: 1px solid #c74000;
+}
+
+.loginform .button-student-login {
+  border: 0;
+  outline: none;
+  border-radius: 0;
+  padding: 13px 0;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background: #3d5a80;
+  color: #ffffff;
+  width: 100%;
+  margin-top: 26px;
+  transition: all 0.5s ease;
+  -webkit-appearance: none;
+}
+
+.loginform .button-student-login:hover {
+  background: #ffffff;
+  color: #3d5a80;
+  border: 1px solid #3d5a80;
+}
+.loginform .button:hover, .loginform .button:focus {
+  background: #179b77;
+}
+
+.loginform .button-block {
+  display: block;
+  width: 100%;
+}
+
+.loginform .forgot {
+  margin-top: -20px;
+  text-align: right;
+}/*# sourceMappingURL=style.css.map */
+/* Login form End */
