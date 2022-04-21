@@ -16,7 +16,7 @@ function StudentForm() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  const { user, isLoading, isError, isSuccess, message } = useSelector(
+  const { student, isLoading, isError, isSuccess, message } = useSelector(
     (state) => state.auth
   )
 
@@ -25,12 +25,12 @@ function StudentForm() {
       toast.error(message)
     }
 
-    if (isSuccess || user) {
-      navigate('/user')
+    if (isSuccess || student) {
+      navigate('/student')
     }
 
     dispatch(reset())
-  }, [user, isError, isSuccess, message, navigate, dispatch])
+  }, [student, isError, isSuccess, message, navigate, dispatch])
 
   const onChange = (e) => {
     setFormData((prevState) => ({
@@ -42,12 +42,12 @@ function StudentForm() {
   const onSubmit = (e) => {
     e.preventDefault()
 
-    const userData = {
+    const studentData = {
       registrationNo:regino,
       password,
     }
 
-    dispatch(login(userData))
+    dispatch(login(studentData))
   }
 
   if (isLoading) {

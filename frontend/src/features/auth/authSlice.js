@@ -1,11 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import authService from './authService'
 
-//Get user from localstorage
-const user = JSON.parse(localStorage.getItem('user'))
+//Get student from localstorage
+const student = JSON.parse(localStorage.getItem('student'))
 
 const initialState = {
-  user: user ? user:null,
+  student: student ? student:null,
   isError: false,
   isSuccess:false,
   isLoading:false,
@@ -13,10 +13,10 @@ const initialState = {
 }
 
 
-// Register user
-export const register = createAsyncThunk('auth/register', async(user, thunkAPI) =>{
+// Register student
+export const register = createAsyncThunk('auth/register', async(student, thunkAPI) =>{
   try{
-    return await authService.register(user)
+    return await authService.register(student)
   }catch(error){
     const message =
     (error.response &&
@@ -29,10 +29,10 @@ export const register = createAsyncThunk('auth/register', async(user, thunkAPI) 
 })
 
 
-// Login user
-export const login = createAsyncThunk('auth/login', async (user, thunkAPI) => {
+// Login student
+export const login = createAsyncThunk('auth/login', async (student, thunkAPI) => {
   try {
-    return await authService.login(user)
+    return await authService.login(student)
   } catch (error) {
     const message =
       (error.response && error.response.data && error.response.data.message) ||
@@ -67,13 +67,13 @@ export const authSlice = createSlice({
     .addCase(register.fulfilled, (state, action) => {
       state.isLoading = false
       state.isSuccess = true
-      state.user = action.payload
+      state.student = action.payload
     })
     .addCase(register.rejected, (state, action) => {
       state.isLoading = false
       state.isError = true
       state.message = action.payload
-      state.user = null
+      state.student = null
     })
     .addCase(login.pending, (state) => {
       state.isLoading = true
@@ -81,16 +81,16 @@ export const authSlice = createSlice({
     .addCase(login.fulfilled, (state, action) => {
       state.isLoading = false
       state.isSuccess = true
-      state.user = action.payload
+      state.student = action.payload
     })
     .addCase(login.rejected, (state, action) => {
       state.isLoading = false
       state.isError = true
       state.message = action.payload
-      state.user = null
+      state.student = null
     })
     .addCase(logout.fulfilled, (state) => {
-      state.user = null
+      state.student = null
     })
   }
 })

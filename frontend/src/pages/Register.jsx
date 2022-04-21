@@ -16,7 +16,7 @@ function Register() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  const { user, isLoading, isError, isSuccess, message } = useSelector(
+  const { student, isLoading, isError, isSuccess, message } = useSelector(
     (state) => state.auth
   )
 
@@ -25,12 +25,12 @@ function Register() {
       toast.error(message)
     }
 
-    if (isSuccess || user) {
+    if (isSuccess || student) {
       navigate('/login')
     }
 
     dispatch(reset())
-  }, [user, isError, isSuccess, message, navigate, dispatch])
+  }, [student, isError, isSuccess, message, navigate, dispatch])
 
   const onChange = (e) => {
     setFormData((prevState) => ({
@@ -45,11 +45,11 @@ function Register() {
     if (regino == null) {
       toast.error('Registration Number is required')
     } else {
-      const userData = {
+      const studentData = {
         registrationNo:regino
       }
 
-      dispatch(register(userData))
+      dispatch(register(studentData))
     }
   }
 

@@ -6,7 +6,7 @@ import { logout, reset } from '../features/auth/authSlice'
 function Header() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const { user } = useSelector((state) => state.auth)
+  const { student } = useSelector((state) => state.auth)
 
   const onLogout = () => {
     dispatch(logout())
@@ -20,7 +20,7 @@ function Header() {
             <Link to='/admin'>Dashboard</Link>
         </div>
         <ul>
-        {user ? (
+        {student ? (
           <li>
             <button className='btn' onClick={onLogout}>
               <FaSignOutAlt /> Logout

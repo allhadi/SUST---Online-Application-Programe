@@ -1,32 +1,32 @@
 import axios from 'axios'
 
-const API_URL = '/api/users/'
+const API_URL = '/api/students/'
 
-// Register user
-const register = async (userData) => {
-  const response = await axios.post(API_URL, userData)
+// Register student
+const register = async (studentData) => {
+  const response = await axios.post(API_URL, studentData)
 
   if (response.data) {
-    localStorage.setItem('user', JSON.stringify(response.data))
+    localStorage.setItem('student', JSON.stringify(response.data))
   }
 
   return response.data
 }
 
-// Login user
-const login = async (userData) => {
-  const response = await axios.post(API_URL + 'login', userData)
+// Login student
+const login = async (studentData) => {
+  const response = await axios.post(API_URL + 'login', studentData)
 
   if (response.data) {
-    localStorage.setItem('user', JSON.stringify(response.data))
+    localStorage.setItem('student', JSON.stringify(response.data))
   }
 
   return response.data
 }
 
-// Logout user
+// Logout student
 const logout = () => {
-  localStorage.removeItem('user')
+  localStorage.removeItem('student')
 }
 
 
