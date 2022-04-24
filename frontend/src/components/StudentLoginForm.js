@@ -3,15 +3,15 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { login, reset } from '../features/auth/authSlice'
-import Spinner from '../components/Spinner'
+import Spinner from './Spinner'
 
 function StudentForm() {
   const [formData, setFormData] = useState({
-    regino: '',
+    email: '',
     password: '',
   })
 
-  const { regino, password } = formData
+  const { email, password } = formData
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -26,7 +26,9 @@ function StudentForm() {
     }
 
     if (isSuccess || user) {
-      navigate('/user')
+      if(user.userType ==='student'){
+        navigate('/user')
+      }
     }
 
     dispatch(reset())
@@ -43,7 +45,7 @@ function StudentForm() {
     e.preventDefault()
 
     const userData = {
-      registrationNo:regino,
+      email,
       password,
     }
 
@@ -60,9 +62,9 @@ function StudentForm() {
         <input
          type='text'
          className='form-control'
-         id='regino'
-         name='regino'
-         value={regino}
+         id='email'
+         name='email'
+         value={email}
          placeholder='Registration Number'
          onChange={onChange}
         />

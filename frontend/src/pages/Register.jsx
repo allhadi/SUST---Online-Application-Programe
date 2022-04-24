@@ -8,10 +8,13 @@ import Spinner from '../components/Spinner'
 
 function Register() {
   const [formData, setFormData] = useState({
-    regino: '',
+    userType: '',
+    email: '',
+    password: '',
+    password2: '',
   })
 
-  const { regino } = formData
+  const { userType, email, password, password2 } = formData
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -26,7 +29,7 @@ function Register() {
     }
 
     if (isSuccess || user) {
-      navigate('/login')
+      navigate('/')
     }
 
     dispatch(reset())
@@ -42,17 +45,18 @@ function Register() {
   const onSubmit = (e) => {
     e.preventDefault()
 
-    if (regino == null) {
-      toast.error('Registration Number is required')
+    if (password !== password2) {
+      toast.error('Passwords do not match')
     } else {
       const userData = {
-        registrationNo:regino
+        userType,
+        email,
+        password,
       }
 
       dispatch(register(userData))
     }
   }
-
 
   if (isLoading) {
     return <Spinner />
@@ -60,7 +64,7 @@ function Register() {
 
   return (
     <>
- <section className='heading'>
+      <section className='heading'>
         <h1>
           <FaUser /> Register
         </h1>
@@ -73,14 +77,46 @@ function Register() {
             <input
               type='text'
               className='form-control'
-              id='regino'
-              name='regino'
-              value={regino}
+              id='userType'
+              name='userType'
+              value={userType}
+              placeholder='Enter UserType'
+              onChange={onChange}
+            />
+          </div>
+          <div className='form-group'>
+            <input
+              type='text'
+              className='form-control'
+              id='email'
+              name='email'
+              value={email}
               placeholder='Enter your email'
               onChange={onChange}
             />
           </div>
-
+          <div className='form-group'>
+            <input
+              type='password'
+              className='form-control'
+              id='password'
+              name='password'
+              value={password}
+              placeholder='Enter password'
+              onChange={onChange}
+            />
+          </div>
+          <div className='form-group'>
+            <input
+              type='password'
+              className='form-control'
+              id='password2'
+              name='password2'
+              value={password2}
+              placeholder='Confirm password'
+              onChange={onChange}
+            />
+          </div>
           <div className='form-group'>
             <button type='submit' className='btn btn-block'>
               Submit

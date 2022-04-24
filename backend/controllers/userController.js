@@ -8,15 +8,15 @@ const { use } = require('../routes/userRoutes')
 //@route  POST /api/users
 //@access Public
 const registerUser = asyncHandler(async(req, res) => {
-const{registrationNo} = req.body
-  if(!registrationNo){
+const{userType, email, password} = req.body
+ 
+  if(!userType||!email||!password){
     res.status(400)
-    throw new Error('Please add a registration Number')
+    throw new Error('Please add all fields')
   }
 
-  const getPass = registrationNo
   //Check if User Exists
-  const userExists = await User.findOne({registrationNo})
+  const userExists = await User.findOne({email})
 
   if(userExists){
     res.status(400)
@@ -25,27 +25,26 @@ const{registrationNo} = req.body
 
   //Hash password
   const salt = await bcrypt.genSalt(10)
-  const hashedPassword = await bcrypt.hash(getPass, salt)
+  const hashedPassword = await bcrypt.hash(password, salt)
 
   //Create User
   const user = await User.create({
-    registrationNo,
+    userType,
+    email,
     password: hashedPassword
   })
 
 if(user){
     res.status(201).json({
       _id : user.id,
-      registrationNo: user.registrationNo,
+      userType: user.userType,
+      email: user.email,
       token: generateToken(user._id)
     })
-    
-    console.log(token)
   }else{
     res.status(400)
       throw new Error('Invalid user data')
   }
-  
 })
 
 
@@ -53,15 +52,16 @@ if(user){
 //@route  POST /api/users/login
 //@access Public
 const loginUser = asyncHandler(async (req, res) => {
-const {registrationNo,password} = req.body
+const {email,password} = req.body
 //check for user email
-const user = await User.findOne({registrationNo})
+const user = await User.findOne({email})
 
   if(user && (await bcrypt.compare(password, user.password))){
     res.json({
       _id : user.id,
-      token: generateToken(user._id),
-      message:"you are logged in"
+      userType: user.userType,
+      email: user.email,
+      token: generateToken(user._id)
     })
   }else{
     res.status(400)
