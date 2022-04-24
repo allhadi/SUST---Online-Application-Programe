@@ -16,8 +16,8 @@ function Header() {
 
   return (
     <header className='header'>
-        <div className='Logo'>
-            <Link to='/admin'>Dashboard</Link>
+        <div className='logo'>
+            <Link to='/admin'>SUST Online Application</Link>
         </div>
         <ul>
         {user ? (

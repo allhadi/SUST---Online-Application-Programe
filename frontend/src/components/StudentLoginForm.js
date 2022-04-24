@@ -25,10 +25,8 @@ function StudentForm() {
       toast.error(message)
     }
 
-    if (isSuccess || user) {
-      if(user.userType ==='student'){
-        navigate('/user')
-      }
+    if (isSuccess || user && user.userType ==='student') {
+        navigate('/student')
     }
 
     dispatch(reset())
