@@ -16,7 +16,7 @@ function UserDashboard() {
       <div className="left-nav item2">
           <div className="dash-title">{user && user.userType}</div>
             <ul className="left-nav-items">
-              <li onClick={() => setshow("profile")} >Profile <span>+</span></li>
+              <li  onClick={() => setshow("profile")} >Profile <span>+</span></li>
               <li onClick={() => setshow("submitNewApplications")} >Submit New Application<span>+</span></li>
               <li onClick={() => setshow("myApplications")} >My Applications<span>+</span></li>
             </ul>

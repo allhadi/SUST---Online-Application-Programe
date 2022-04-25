@@ -1,5 +1,8 @@
 import { useState } from 'react'
-import TranscriptApplication from './ApplicationComponents/TranscriptApplication';
+import ApplicationForTranscript from './ApplicationComponents/ApplicationForTranscript';
+import ApplicationForCertificate from './ApplicationComponents/ApplicationForCertificate';
+import ApplicationForClearence from './ApplicationComponents/ApplicationForClearence';
+import ApplicationForGradeSheet from './ApplicationComponents/ApplicationForGradeSheet';
 function SubmitNewApplications() {
 
   const [show, setshow] = useState("Select Application Type");
@@ -10,13 +13,17 @@ function SubmitNewApplications() {
         <div className="application-selection">
             <button className="application-selection-drop">{show}</button>
             <div className="application-selection-drop-content">
-              <a onClick={() => setshow("Transcript Application")}>Application for Transcript</a>
+              <a onClick={() => setshow("Application for Transcript")}>Application for Transcript</a>
               <a onClick={() => setshow("Application for Certificate")}>Application for Certificate</a>
               <a onClick={() => setshow("Application for Clearence")}>Application for Clearence</a>
+              <a onClick={() => setshow("Application for Greadsheet")}>Application for Greadsheet</a>
             </div>
           </div>
           <div>
-            {show === "Transcript Application" && <TranscriptApplication/>}
+            {show === "Application for Transcript" && <ApplicationForTranscript/>}
+            {show === "Application for Certificate" && <ApplicationForCertificate/>}
+            {show === "Application for Clearence" && <ApplicationForClearence/>}
+            {show === "Application for Greadsheet" && <ApplicationForGradeSheet/>}
           </div>
     </div>
     </>

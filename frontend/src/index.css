@@ -582,4 +582,16 @@ margin-left: 10px;
   background: white;
 }
 /* My Application */
+
+
+/* Profile */
+.profile-img{
+  max-width: 200px;
+  border: 1px solid gray;
+}
+.profile-img img{
+  height: 100%;
+  width: 100%;
+}
+/* Profile */
 /* User Dashboard */
