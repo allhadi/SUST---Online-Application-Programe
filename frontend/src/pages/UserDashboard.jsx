@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import SubmitNewApplications from "../components/UserDashboardComponents/SubmitNewApplications"
 import MyApplications from "../components/UserDashboardComponents/MyApplications";
-import Profile from "../components/UserDashboardComponents/Profile";
+import Profile from "../components/UserDashboardComponents/ProfilePage";
 
 function UserDashboard() {
 

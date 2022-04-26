@@ -588,10 +588,53 @@ margin-left: 10px;
 .profile-img{
   max-width: 200px;
   border: 1px solid gray;
+  margin-bottom: 10px;
 }
 .profile-img img{
   height: 100%;
   width: 100%;
+}
+
+.profile-image-input{
+  margin-left: -13px;
+}
+
+.page-title {
+  font-size: 25px;
+  color: #4e4b4beb;
+  text-align: left;
+}
+
+.page-title-div{
+  
+  padding: 20px 0 38px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.profile-form-section {
+  border-top: 1px solid #00000042;
+  border-bottom: 1px solid #00000042;
+  padding: 5px 0 0;
+}
+
+.profile-form-section h2{
+  text-align: left;
+    font-size: 20px;
+    color: #000000a3;
+    font-weight: inherit;
+    border-bottom: 1px solid #00000042;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    margin-bottom: 20px;
+}
+
+.componentDeActive{
+  display: none;
+}
+
+.componentActive{
+  display: block;
 }
 /* Profile */
 /* User Dashboard */
