@@ -17,6 +17,7 @@ function App() {
           <Route path='/login' element={<Login/>}/>
           <Route path='/student' element={<UserDashboard/>}/>
           <Route path='/admin' element={<AdminDashboard/>}/>
+          <Route path='/register' element={<Register/>}/>
         </Routes>
     </Router>
     <ToastContainer/>

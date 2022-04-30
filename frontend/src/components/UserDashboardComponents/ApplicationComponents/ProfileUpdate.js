@@ -1,5 +1,7 @@
+import { useSelector } from 'react-redux'
 
 function ProfileUpadte() {
+  const { user } = useSelector((state) => state.auth)
   return (
     <>
           <div className='row'>
@@ -18,11 +20,13 @@ function ProfileUpadte() {
                            <div className="form-group">
                               <div className="row">
                                 <div className='col-md-6'>
-                                  <input type="text" className="form-control" placeholder='First Name' id="fName" name="fName"/>
+                                <label>First Name</label>
+                                  <input type="text" className="form-control" value={!user.firstName ? ' ' : user.firstName} placeholder='First Name' id="fName" name="firstName"/>
                                 </div>
 
                                 <div className='col-md-6'>
-                                    <input type="text" className="form-control" placeholder="Last Name" id="lName" name="lName"/>
+                                <label>Last Name</label>
+                                    <input type="text" className="form-control" placeholder="Last Name" id="lName" name="lastName" value={!user.lastName ? ' ' : user.lastName}/>
                                 </div>
                               </div>
                           </div>
@@ -30,11 +34,13 @@ function ProfileUpadte() {
                           <div className="form-group">
                           <div className="row">
                                 <div className='col-md-6'>
-                                  <input type="text" className="form-control" placeholder='Registration No' id="regiNo" name="regiNo"  readOnly/>
+                                <label>Registration No</label>
+                                  <input type="text" className="form-control" placeholder='Registration No' id="regiNo" name="regiNo"  value={!user.email ? ' ' : user.email} readOnly/>
                                 </div>
 
                                 <div className='col-md-6'>
-                                    <input type="text" className="form-control" placeholder="Department" id="department" name="department"/>
+                                <label>Department</label>
+                                    <input type="text" className="form-control" placeholder="Department" id="department" name="department" value={!user.department ? ' ' : user.department}/>
                                 </div>
                               </div>
                           </div>
@@ -42,11 +48,13 @@ function ProfileUpadte() {
                           <div className="form-group">
                           <div className="row">
                                 <div className='col-md-6'>
-                                  <input type="text" className="form-control" placeholder='Admission Date' id="addmissionDate" name="addmissionDate"/>
+                                <label>Admission Date</label>
+                                  <input type="text" className="form-control" placeholder='Admission Date' id="addmissionDate" name="admissionDate" value={!user.admissionDate ? ' ' : user.admissionDate}/>
                                 </div>
 
                                 <div className='col-md-6'>
-                                    <input type="text" className="form-control" placeholder="Course" id="course" name="course"/>
+                                <label>Course</label>
+                                    <input type="text" className="form-control" placeholder="Course" id="course" name="course" value={!user.course ? ' ' : user.course}/>
                                 </div>
                               </div>
                           </div>
@@ -54,11 +62,13 @@ function ProfileUpadte() {
                           <div className="form-group">
                           <div className="row">
                                 <div className='col-md-6'>
-                                  <input type="email" className="form-control" placeholder='Email' id="email" name="email"/>
+                                <label>Email</label>
+                                  <input type="email" className="form-control" placeholder='Email' id="email" name="email" value={!user.email ? ' ' : user.email}/>
                                 </div>
 
                                 <div className='col-md-6'>
-                                    <input type="text" className="form-control" placeholder="National ID" id="nid" name="nid"/>
+                                <label>National ID</label>
+                                    <input type="text" className="form-control" placeholder="National ID" id="nid" name="nationalID" value={!user.nationalID ? ' ' : user.nationalID}/>
                                 </div>
                               </div>
                           </div>
@@ -66,11 +76,13 @@ function ProfileUpadte() {
                           <div className="form-group">
                               <div className="row">
                                 <div className='col-md-6'>
-                                  <input type="text" className="form-control" id="mobile" placeholder="Mobile Number" name="mobile"/>
+                                <label>Mobile Number</label>
+                                  <input type="text" className="form-control" id="mobile" placeholder="Mobile Number" name="mobileNumber" value={!user.mobileNumber ? ' ' : user.mobileNumber}/>
                                 </div>
                               
                                 <div className="col-md-6">
-                                  <input type="text" className="form-control" id="birthdate" placeholder="Birth Date" name="birthdate"/>
+                                <label>Birth Date</label>
+                                  <input type="text" className="form-control" id="birthdate" placeholder="Birth Date" name="birthdate" value={!user.birthDate ? ' ' : user.birthDate}/>
                                 </div>
                               </div>
                           </div>
@@ -78,11 +90,13 @@ function ProfileUpadte() {
                           <div className="form-group">
                               <div className="row">
                                 <div className='col-md-6'>
-                                  <input type="text" className="form-control" id="gender" placeholder="Gender" name="gender"/>
+                                <label>Gender</label>
+                                  <input type="text" className="form-control" id="gender" placeholder="Gender" name="gender" value={!user.gender ? ' ' : user.gender}/>
                                 </div>
                               
                                 <div className="col-md-6">
-                                <input type="text" className="form-control" id="nationality" placeholder="Nationality" name="nationality"/>
+                                <label>Nationality</label>
+                                <input type="text" className="form-control" id="nationality" placeholder="Nationality" name="nationality" value={!user.nationality ? ' ' : user.nationality}/>
                                 </div>
                               </div>
                           </div>
@@ -90,22 +104,26 @@ function ProfileUpadte() {
                           <div className="form-group">
                               <div className="row">
                                 <div className='col-md-6'>
-                                  <input type="text" className="form-control" id="religion" placeholder="Religion" name="religion"/>
+                                <label>Religion</label>
+                                  <input type="text" className="form-control" id="religion" placeholder="Religion" name="religion" value={!user.religion ? ' ' : user.religion}/>
                                 </div>
                               
                                 <div className="col-md-6">
-                                  <input type="text" className="form-control" id="bloodgroup" placeholder="Blood Group" name="bloodgroup"/>   
+                                <label>Blood Group</label>
+                                  <input type="text" className="form-control" id="bloodgroup" placeholder="Blood Group" name="bloodgroup" value={!user.bloodGroup ? ' ' : user.bloodGroup}/>   
                                 </div>
                               </div>
                           </div>
 
                           
                           <div className="form-group">
-                                  <textarea type="text" className="form-control" id="presentAddress" placeholder="Present Address" name="presentAddress"/>
+                                <label>Present Address</label>
+                                  <textarea type="text" className="form-control" id="presentAddress" placeholder="Present Address" name="presentAddress" value={!user.presentAddress ? ' ' : user.presentAddress}/>
                           </div>
 
                           <div className="form-group">
-                                  <textarea type="text" className="form-control" id="parmanentAddress" placeholder="Parmanent Address" name="parmanentAddress"/>
+                                <label>Parmanent Address</label>
+                                  <textarea type="text" className="form-control" id="parmanentAddress" placeholder="Parmanent Address" name="parmanentAddress" value={!user.parmanentAddress ? ' ' : user.parmanentAddress}/>
                           </div>
 
                       </section>
@@ -116,11 +134,13 @@ function ProfileUpadte() {
                           <div className="form-group">
                               <div className="row">
                                 <div className='col-md-6'>
-                                <input type="text" className="form-control" id="fatherName" placeholder="Father's Name" name="fatherName"/>   
+                                <label>Father's Name</label>
+                                <input type="text" className="form-control" id="fatherName" placeholder="Father's Name" name="fatherName" value={!user.firstName ? ' ' : user.firstName}/>   
                                 </div>
                               
                                 <div className="col-md-6">
-                                  <input type="text" className="form-control" id="fathersPhone" placeholder="Mobile" name="fathersPhone"/>   
+                                <label>Mobile</label>
+                                  <input type="text" className="form-control" id="fathersPhone" placeholder="Mobile" name="fathersMobileNo" value={!user.fathersMobileNo ? ' ' : user.fathersMobileNo}/>   
                                 </div>
                               </div>
                           </div>
@@ -128,11 +148,13 @@ function ProfileUpadte() {
                           <div className="form-group">
                               <div className="row">
                                 <div className='col-md-6'>
-                                  <input type="text" className="form-control" id="motherName" placeholder="Mother's Name" name="motherName"/>    
+                                <label>Mother's Name</label>
+                                  <input type="text" className="form-control" id="motherName" placeholder="Mother's Name" name="motherName" value={!user.mothersName ? ' ' : user.mothersName}/>    
                                 </div>
                               
                                 <div className="col-md-6">
-                                  <input type="text" className="form-control" id="mothersPhone" placeholder="Mobile" name="mothersPhone"/>   
+                                <label>Mobile</label>
+                                  <input type="text" className="form-control" id="mothersPhone" placeholder="Mobile" name="mothersMobileNo" value={!user.mothersMobileNo ? ' ' : user.mothersMobileNo}/>   
                                 </div>
                               </div>
                           </div>
@@ -140,19 +162,23 @@ function ProfileUpadte() {
                           <div className="form-group">
                               <div className="row">
                                 <div className='col-md-6'>
-                                  <input type="text" className="form-control" id="localGurdianName" placeholder="Local Gurdian" name="localGurdianName"/>    
+                                <label>Local Gurdian</label>
+                                  <input type="text" className="form-control" id="localGurdianName" placeholder="Local Gurdian" name="localGurdianName" value={!user.localGurdianName ? ' ' : user.localGurdianName}/>    
                                 </div>
                               
                                 <div className="col-md-6">
-                                  <input type="text" className="form-control" id="localGurdianPhone" placeholder="Mobile" name="localGurdianPhone"/>   
+                                <label>Mobile</label>
+                                  <input type="text" className="form-control" id="localGurdianPhone" placeholder="Mobile" name="localGurdianPhone" value={!user.localGurdianMobileNo ? ' ' : user.localGurdianMobileNo}/>   
                                 </div>
 
                                 <div className='col-md-6'>
-                                  <input type="text" className="form-control" id="relationWithLocalGurdian" placeholder="Relation With Local Gurdian" name="relationWithLocalGurdian"/>    
+                                <label>Relation With Local Gurdian</label>
+                                  <input type="text" className="form-control" id="relationWithLocalGurdian" placeholder="Relation With Local Gurdian" name="relationWithLocalGurdian" value={!user.firstName ? ' ' : user.localGurdianAddress}/>    
                                 </div>
                               
                                 <div className="col-md-6">
-                                  <input type="text" className="form-control" id="localGurdianAddress" placeholder="Local Gurdian Address" name="localGurdianAddress"/>   
+                                <label>Local Gurdian Address</label>
+                                  <input type="text" className="form-control" id="localGurdianAddress" placeholder="Local Gurdian Address" name="localGurdianAddress" value={!user.firstName ? ' ' : user.relationWithLocalGurdian}/>   
                                 </div>
 
                               </div>

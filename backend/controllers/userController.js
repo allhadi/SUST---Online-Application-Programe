@@ -31,7 +31,29 @@ const{userType, email, password} = req.body
   const user = await User.create({
     userType,
     email,
-    password: hashedPassword
+    password: hashedPassword,
+    firstName:"",
+    lastName:"",
+    department:"",
+    course:"",
+    admissionDate:"",
+    nationalID:"",
+    mobileNumber:"",
+    birthDate:"",
+    gender:"",
+    nationality:"",
+    religion:"",
+    bloodGroup:"",
+    presentAddress:"",
+    parmanentAddress:"",
+    fathersName:"",
+    mothersName:"",
+    fathersMobileNo:"",
+    mothersMobileNo:"",
+    localGurdianName:"",
+    localGurdianMobileNo:"",
+    localGurdianAddress:"",
+    relationWithLocalGurdian:"",
   })
 
 if(user){
@@ -47,6 +69,20 @@ if(user){
   }
 })
 
+//@desc   Update User
+//@route  PUT /api/users/id
+//@access Private
+
+const updateUser = asyncHandler(async(req, res)=>{
+  const user = await User.findById(req.params.id)
+
+  if(!user){
+    res.status(400)
+    throw new Error('User not found')
+  }
+
+  res.status(200).json(user)
+})
 
 //@desc   Authenticate a User
 //@route  POST /api/users/login
@@ -88,5 +124,6 @@ const generateToken = (id) => {
 module.exports = {
   registerUser,
   loginUser,
-  getMe
+  getMe,
+  updateUser
 }
