@@ -1,6 +1,6 @@
+import ProfileUpdate from './ProfileComponent/ProfileUpdate';
+import Profile from './ProfileComponent/Profile';
 import { useState } from 'react'
-import Profile from './ApplicationComponents/Profile';
-import ProfileUpdate from './ApplicationComponents/ProfileUpdate';
 
 function ProfilePage() {
 
@@ -34,7 +34,6 @@ function ProfilePage() {
             </div>
             
         </div>
-
            {show === "Profile" && <Profile/>}
            {show === "Edit Profile" && <ProfileUpdate/>}
       </div>
