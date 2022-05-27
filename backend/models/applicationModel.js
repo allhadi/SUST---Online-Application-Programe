@@ -5,7 +5,7 @@ const applicationSchema = mongoose.Schema(
     user: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
-      ref: 'Student',
+      ref: 'User',
     },
     text: {
       type: String,

@@ -49,22 +49,30 @@ h3 {
   align-items: center;
   padding: 20px 0;
   border-bottom: 1px solid #e6e6e6;
-  margin-bottom: 60px;
+  padding: 20px 30px;
 }
 
 .header ul {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin: 0;
 }
 
 .header ul li {
   margin-left: 20px;
 }
 
-.header ul li a {
+.header ul li logo a {
   display: flex;
   align-items: center;
+}
+
+.header .logo a{
+  color: #101010;
+    text-decoration: none;
+    font-weight: 300;
+    font-size: 25px;
 }
 
 .header ul li a:hover {
@@ -117,6 +125,11 @@ h3 {
 .form-group {
   margin-bottom: 10px;
 }
+
+.form-group :focus {
+  outline: none;
+}
+
 
 .form-group input,
 .form-group textarea,
@@ -414,3 +427,214 @@ li.tab.adm a:hover {
   text-align: right;
 }/*# sourceMappingURL=style.css.map */
 /* Login form End */
+
+
+
+/* User Dashboard */
+
+.left-nav{
+  background-color: #555;
+  max-width: 300px;
+  width: 100%;
+}
+
+.left-nav-items{
+  color: #e6e6e6;
+  font-size: 18px;
+  
+  padding: 0;
+}
+
+.left-nav-items li{
+  line-height: 2.2;
+  padding: 6px 15px 6px 20px;
+  border-top: 1px solid #d1d1d1;
+  border-bottom: 1px solid #d1d1d1;
+  box-shadow: -1px 4px 5px 1px #2c2c2c;
+  margin: 8px 0px;
+}
+
+.left-nav-items li:hover{
+  background-color: white;
+  color: #2c2c2c;
+  border-top: 1px solid #2c2c2c;
+  border-bottom: 1px solid #2c2c2c;
+}
+
+.left-nav-items li span{
+  float: right;
+}
+
+.dash-title{
+  color: #e6e6e6;
+  font-size: 18px;
+  padding: 24px 0px;
+  text-align: center;
+}
+
+.dashboard-body{
+  background-color: #e6e6e6;
+  width: 100%;
+  padding: 30px;
+}
+
+.userDashboard{
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Style The application-selection Button */
+.application-selection-drop {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* The container <div> - needed to position the application-selection content */
+.application-selection {
+  position: relative;
+  display: inline-block;
+}
+
+/* application-selection Content (Hidden by Default) */
+.application-selection-drop-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 240px;
+  width: 100%;
+  box-shadow: 0px 8px 16px 0px rgb(0 0 0 / 20%);
+  z-index: 1;
+}
+
+/* Links inside the application-selection */
+.application-selection-drop-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of application-selection links on hover */
+.application-selection-drop-content a:hover {background-color: #f1f1f1}
+
+/* Show the application-selection menu on hover */
+.application-selection:hover .application-selection-drop-content {
+  display: block;
+}
+
+/* Change the background color of the application-selection button when the application-selection content is shown */
+.application-selection:hover .application-selection-drop {
+  background-color: #3e8e41;
+}
+
+/* .application-form-page{
+  display: flex;
+} */
+
+.application-title{
+  float: right;
+}
+
+
+/* Application-Form-Starts */
+
+.apform{
+  padding: 30px 0;
+}
+
+.form-section{
+  display: flex;
+}
+
+
+
+.form-check-label{
+margin-right: 20px;
+margin-left: 10px;
+}
+
+.form-check{
+  text-align: left;
+  padding: 30px 0;
+  display: inline-block !important;
+}
+
+.application-selection:hover .application-selection-drop-content {
+  display: block;
+  max-width: 80px;
+  width: 80px;
+}
+
+.application-selection:hover .application-selection-drop {
+  background-color: #3e8e41;
+  min-width: 240px;
+  width: 100%;
+}
+/* Application-Form-Starts */
+
+/* My Application */
+
+.table {
+  background: white;
+}
+/* My Application */
+
+
+/* Profile */
+.profile-img{
+  max-width: 200px;
+  border: 1px solid gray;
+  margin-bottom: 10px;
+}
+.profile-img img{
+  height: 100%;
+  width: 100%;
+}
+
+.profile-image-input{
+  margin-left: -13px;
+}
+
+.page-title {
+  font-size: 25px;
+  color: #4e4b4beb;
+  text-align: left;
+}
+
+.page-title-div{
+  
+  padding: 20px 0 38px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.profile-form-section {
+  border-top: 1px solid #00000042;
+  border-bottom: 1px solid #00000042;
+  padding: 5px 0 0;
+}
+
+.profile-form-section h2{
+  text-align: left;
+    font-size: 20px;
+    color: #000000a3;
+    font-weight: inherit;
+    border-bottom: 1px solid #00000042;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    margin-bottom: 20px;
+}
+
+.componentDeActive{
+  display: none;
+}
+
+.componentActive{
+  display: block;
+}
+/* Profile */
+/* User Dashboard */

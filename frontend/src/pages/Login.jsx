@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import AdminForm from "../components/AdminForm";
-import StudentForm from "../components/StudentForm";
+import AdminForm from "../components/AdminLoginForm";
+import StudentForm from "../components/StudentLoginForm";
 
 function Login() {
  
