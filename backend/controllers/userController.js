@@ -31,29 +31,7 @@ const{userType, email, password} = req.body
   const user = await User.create({
     userType,
     email,
-    password: hashedPassword,
-    firstName:"",
-    lastName:"",
-    department:"",
-    course:"",
-    admissionDate:"",
-    nationalID:"",
-    mobileNumber:"",
-    birthDate:"",
-    gender:"",
-    nationality:"",
-    religion:"",
-    bloodGroup:"",
-    presentAddress:"",
-    parmanentAddress:"",
-    fathersName:"",
-    mothersName:"",
-    fathersMobileNo:"",
-    mothersMobileNo:"",
-    localGurdianName:"",
-    localGurdianMobileNo:"",
-    localGurdianAddress:"",
-    relationWithLocalGurdian:"",
+    password: hashedPassword
   })
 
 if(user){
@@ -69,25 +47,6 @@ if(user){
   }
 })
 
-//@desc   Update User
-//@route  PUT /api/users/id
-//@access Private
-
-const updateUser = asyncHandler(async(req, res)=>{
-  const user = await User.findById(req.params.id)
-
-  if(!user){
-    res.status(400)
-    throw new Error('User not found')
-  }
-
-  const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, {
-    firstName,
-    lastName,
-  })
-
-  res.status(200).json(user)
-})
 
 //@desc   Authenticate a User
 //@route  POST /api/users/login
@@ -111,14 +70,6 @@ const user = await User.findOne({email})
 })
 
 
-//@desc  Get User
-//@route  GET /api/users/me
-//@access Private
-const getMe = asyncHandler(async (req, res) => {
-  res.status(200).json(req.user)
-})
-
-
 //Generate JWT
 const generateToken = (id) => {
   return jwt.sign({id}, process.env.JWT_SECRET,{
@@ -128,7 +79,5 @@ const generateToken = (id) => {
 
 module.exports = {
   registerUser,
-  loginUser,
-  getMe,
-  updateUser
+  loginUser
 }

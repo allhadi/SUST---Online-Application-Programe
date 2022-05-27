@@ -19,66 +19,66 @@ const userSchema = mongoose.Schema({
   lastName:{
     type:String,
   },
-  department:{
-    type:String,
-  },
-  course:{
-    type:String,
-  },
-  admissionDate:{
-    type:String,
-  },
-  nationalID:{
-    type:String,
-  },
-  mobileNumber:{
-    type:String,
-  },
-  birthDate:{
-    type:String,
-  },
-  gender:{
-    type:String,
-  },
-  nationality:{
-    type:String,
-  },
-  religion:{
-    type:String,
-  },
-  bloodGroup:{
-    type:String,
-  },
-  presentAddress:{
-    type:String,
-  },
-  parmanentAddress:{
-    type:String,
-  },
-  fathersName:{
-    type:String,
-  },
-  mothersName:{
-    type:String,
-  },
-  fathersMobileNo:{
-    type:String,
-  },
-  mothersMobileNo:{
-    type:String,
-  },
-  localGurdianName:{
-    type:String,
-  },
-  localGurdianMobileNo:{
-    type:String,
-  },
-  localGurdianAddress:{
-    type:String,
-  },
-  relationWithLocalGurdian:{
-    type:String,
-  },
+  // department:{
+  //   type:String,
+  // },
+  // course:{
+  //   type:String,
+  // },
+  // admissionDate:{
+  //   type:String,
+  // },
+  // nationalID:{
+  //   type:String,
+  // },
+  // mobileNumber:{
+  //   type:String,
+  // },
+  // birthDate:{
+  //   type:String,
+  // },
+  // gender:{
+  //   type:String,
+  // },
+  // nationality:{
+  //   type:String,
+  // },
+  // religion:{
+  //   type:String,
+  // },
+  // bloodGroup:{
+  //   type:String,
+  // },
+  // presentAddress:{
+  //   type:String,
+  // },
+  // parmanentAddress:{
+  //   type:String,
+  // },
+  // fathersName:{
+  //   type:String,
+  // },
+  // mothersName:{
+  //   type:String,
+  // },
+  // fathersMobileNo:{
+  //   type:String,
+  // },
+  // mothersMobileNo:{
+  //   type:String,
+  // },
+  // localGurdianName:{
+  //   type:String,
+  // },
+  // localGurdianMobileNo:{
+  //   type:String,
+  // },
+  // localGurdianAddress:{
+  //   type:String,
+  // },
+  // relationWithLocalGurdian:{
+  //   type:String,
+  // },
 },
 {
   timestamps:true

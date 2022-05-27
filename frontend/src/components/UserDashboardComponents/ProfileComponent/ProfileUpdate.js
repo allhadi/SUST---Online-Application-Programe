@@ -1,9 +1,7 @@
-import { useState, useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
-import { toast } from 'react-toastify'
+import { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import Spinner from '../../../components/Spinner'
-import { update, reset } from '../../../features/auth/authSlice'
+import { setProfile } from '../../../features/profile/profileSlice'
 
 function ProfileUpdate() {
 
@@ -14,20 +12,7 @@ function ProfileUpdate() {
 
   const { firstName, lastName } = formData
 
-  const navigate = useNavigate()
   const dispatch = useDispatch()
-
-  const { user, isLoading, isError, isSuccess, message } = useSelector(
-    (state) => state.auth
-  )
-
-  useEffect(() => {
-    if (isError) {
-      toast.error(message)
-    }
-    
-    dispatch(reset())
-  }, [user, isError, isSuccess, message, navigate, dispatch])
 
   const onChange = (e) => {
     setFormData((prevState) => ({
@@ -35,20 +20,15 @@ function ProfileUpdate() {
       [e.target.name]: e.target.value,
     }))
   }
-  
 
   const onSubmit = (e) => {
     e.preventDefault()
 
-      const userData = {
+      const profileData = {
         firstName,
         lastName
       }
-      dispatch(update(userData))
-  }
-
-  if (isLoading) {
-    return <Spinner />
+      dispatch(setProfile(profileData))
   }
 
 
@@ -96,6 +76,12 @@ function ProfileUpdate() {
                                     />
                                 </div>
                               </div>
+                          </div>
+
+                          <div className='form-group'>
+                            <button className='btn btn-primary' type='submit'>
+                              Add Goal
+                            </button>
                           </div>
 
                           {/* <div className="form-group">
